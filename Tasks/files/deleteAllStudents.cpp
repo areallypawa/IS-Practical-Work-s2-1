@@ -5,7 +5,7 @@ void deleteAllStudents(Profile* students, Profile** p_profile)
 {
     int n = *p_profile - students;
     if (n == 0) {
-        cout << RED << "Áàçà óæå ïóñòà!" << RESET;
+        cout << RED << "Ð‘Ð°Ð·Ð° ÑƒÐ¶Ðµ Ð¿ÑƒÑÑ‚Ð°!" << RESET;
         pause();
         return;
     }
@@ -18,6 +18,6 @@ void deleteAllStudents(Profile* students, Profile** p_profile)
     ofstream file(fileName, ios::trunc);
     file.close();
 
-    cout << GREEN << "Âñå ñòóäåíòû óäàëåíû!" << RESET;
+    cout << GREEN << "Ð’ÑÐµ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ ÑƒÐ´Ð°Ð»ÐµÐ½Ñ‹!" << RESET;
     pause();
 }
