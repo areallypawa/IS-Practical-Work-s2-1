@@ -15,7 +15,7 @@ void changeStudent(string *arrStudentNames, Profile* p, Profile** p_profile) {
     }
 
     while (true) {
-        show_menu(current_change, count, arrStudentNames, "Выбери студента");
+        show_menu(current_change, count, arrStudentNames, "Г‚Г»ГЎГҐГ°ГЁ Г±ГІГіГ¤ГҐГ­ГІГ ");
         int key = _getch();
 
         if (key == 72 && current_change > 0) current_change--;
@@ -55,22 +55,22 @@ void changeStudent(string *arrStudentNames, Profile* p, Profile** p_profile) {
         changeDate(p + current_change);
         break;
     case 7:
-        int total = *p_profile - p;   // сколько реально студентов
+        int total = *p_profile - p;   // Г±ГЄГ®Г«ГјГЄГ® Г°ГҐГ Г«ГјГ­Г® Г±ГІГіГ¤ГҐГ­ГІГ®Гў
 
-        // Сдвиг элементов влево
+        // Г‘Г¤ГўГЁГЈ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў ГўГ«ГҐГўГ®
         for (int i = current_change; i < total - 1; i++) {
             p[i] = p[i + 1];
         }
 
-        // Очистка последнего элемента (не обязательно, но аккуратно)
+        // ГЋГ·ГЁГ±ГІГЄГ  ГЇГ®Г±Г«ГҐГ¤Г­ГҐГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ  (Г­ГҐ Г®ГЎГїГ§Г ГІГҐГ«ГјГ­Г®, Г­Г® Г ГЄГЄГіГ°Г ГІГ­Г®)
         p[total - 1] = Profile();
 
-        // Сдвигаем указатель свободной позиции назад
+        // Г‘Г¤ГўГЁГЈГ ГҐГ¬ ГіГЄГ Г§Г ГІГҐГ«Гј Г±ГўГ®ГЎГ®Г¤Г­Г®Г© ГЇГ®Г§ГЁГ¶ГЁГЁ Г­Г Г§Г Г¤
         (*p_profile)--;
         
         
 
-        cout << GREEN << "Студент удалён!" << RESET;
+        cout << GREEN << "Г‘ГІГіГ¤ГҐГ­ГІ ГіГ¤Г Г«ВёГ­!" << RESET;
         pause();
         break;
     }
