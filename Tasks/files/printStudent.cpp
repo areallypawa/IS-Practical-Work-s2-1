@@ -8,29 +8,29 @@ void printStudent(Profile* p, int studentCount) {
     clear();
 
     if ((p->fullName) == "") {
-        cout << RED << "Íåò äîáàâëåííûõ ñòóäåíòîâ!" << RESET;
+        cout << RED << "ÐÐµÑ‚ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ñ… ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð²!" << RESET;
         pause();
         return;
     }
 
     const string printItems[] = {
-        "Âûâåñòè âñåõ ñòóäåíòîâ",
-        "Âñå ñòóäåíòû ãðóïïû",
-        "Òîï ñòóäåíòîâ",
-        "Ñòóäåíòû - ìóæ÷èíû",
-        "Ñòóäåíòû - äåâóøêè", 
-        "Ñòóäåíòû áåç ñòèïåíäèè",
-        "Ñòóäåíòû õîðîøèñòû",
-        "Ñòóäåíòû îòëè÷íèêè",
-        "Ñòóäåíò ïî ID",
-        "Íàçàä"
+        "Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ Ð²ÑÐµÑ… ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð²",
+        "Ð’ÑÐµ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð³Ñ€ÑƒÐ¿Ð¿Ñ‹",
+        "Ð¢Ð¾Ð¿ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð²",
+        "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ - Ð¼ÑƒÐ¶Ñ‡Ð¸Ð½Ñ‹",
+        "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ - Ð´ÐµÐ²ÑƒÑˆÐºÐ¸", 
+        "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð±ÐµÐ· ÑÑ‚Ð¸Ð¿ÐµÐ½Ð´Ð¸Ð¸",
+        "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ñ…Ð¾Ñ€Ð¾ÑˆÐ¸ÑÑ‚Ñ‹",
+        "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð¾Ñ‚Ð»Ð¸Ñ‡Ð½Ð¸ÐºÐ¸",
+        "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ Ð¿Ð¾ ID",
+        "ÐÐ°Ð·Ð°Ð´"
     };
     int printCount = sizeof(printItems) / sizeof(printItems[0]);
     int printCurrent = 0;
 
     do {
         while (true) {
-            show_menu(printCurrent, printCount, printItems, "ÏÅ×ÀÒÜ");
+            show_menu(printCurrent, printCount, printItems, "ÐŸÐ•Ð§ÐÐ¢Ð¬");
             int key = _getch();
 
             if (key == 72 && printCurrent > 0) printCurrent--;
@@ -41,9 +41,9 @@ void printStudent(Profile* p, int studentCount) {
         switch (printCurrent) {
         case 0: 
             clear();
-            cout << "=== ÂÑÅ ÑÒÓÄÅÍÒÛ (" << studentCount << ") ===\n\n";
+            cout << "=== Ð’Ð¡Ð• Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢Ð« (" << studentCount << ") ===\n\n";
             if (studentCount == 0) {
-                cout << RED << "Ñïèñîê ñòóäåíòîâ ïóñò!" << RESET << endl;
+                cout << RED << "Ð¡Ð¿Ð¸ÑÐ¾Ðº ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð² Ð¿ÑƒÑÑ‚!" << RESET << endl;
             }
             else {
                 for (int i = 0; i < studentCount; i++) {
@@ -54,15 +54,15 @@ void printStudent(Profile* p, int studentCount) {
             clear();
             break;
 
-        case 1: // Ïîèñê ïî Group
+        case 1: // ÐŸÐ¾Ð¸ÑÐº Ð¿Ð¾ Group
             clear();
-            cout << "Ââåäèòå íîìåð ãðóïïû: ";
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð³Ñ€ÑƒÐ¿Ð¿Ñ‹: ";
             {
                 int searchGroup;
                 cin >> searchGroup;
 
                 bool found = false;
-                cout << "\n=== ÑÒÓÄÅÍÒÛ ÃÐÓÏÏÛ " << searchGroup << " ===\n\n";
+                cout << "\n=== Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢Ð« Ð“Ð Ð£ÐŸÐŸÐ« " << searchGroup << " ===\n\n";
 
                 for (int i = 0; i < studentCount; i++) {
                     if (p[i].group == searchGroup) {
@@ -72,17 +72,17 @@ void printStudent(Profile* p, int studentCount) {
                 }
 
                 if (!found) {
-                    cout << RED << "Ñòóäåíòû ãðóïïû " << searchGroup << " íå íàéäåíû!" << RESET << endl;
+                    cout << RED << "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð³Ñ€ÑƒÐ¿Ð¿Ñ‹ " << searchGroup << " Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹!" << RESET << endl;
                 }
             }
             pause();
             clear();
             break;
-        case 2: // Òîï ñòóäåíòîâ
+        case 2: // Ð¢Ð¾Ð¿ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð²
             clear();
-            cout << "=== ÒÎÏ ÑÒÓÄÅÍÒÎÂ (ïî ñðåäíåìó áàëëó) ===\n\n";
+            cout << "=== Ð¢ÐžÐŸ Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢ÐžÐ’ (Ð¿Ð¾ ÑÑ€ÐµÐ´Ð½ÐµÐ¼Ñƒ Ð±Ð°Ð»Ð»Ñƒ) ===\n\n";
             if (studentCount == 0) {
-                cout << RED << "Íåò ñòóäåíòîâ äëÿ ðåéòèíãà!" << RESET << endl;
+                cout << RED << "ÐÐµÑ‚ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð² Ð´Ð»Ñ Ñ€ÐµÐ¹Ñ‚Ð¸Ð½Ð³Ð°!" << RESET << endl;
             }
             else {
                 struct StudentRating {
@@ -94,7 +94,7 @@ void printStudent(Profile* p, int studentCount) {
 
                 StudentRating ratings[100];
 
-                // Âû÷èñëÿåì ñðåäíèå áàëëû
+                // Ð’Ñ‹Ñ‡Ð¸ÑÐ»ÑÐµÐ¼ ÑÑ€ÐµÐ´Ð½Ð¸Ðµ Ð±Ð°Ð»Ð»Ñ‹
                 for (int i = 0; i < studentCount; i++) {
                     double sum = 0;
                     int count = 0;
@@ -110,7 +110,7 @@ void printStudent(Profile* p, int studentCount) {
                     ratings[i].id = p[i].id;
                 }
 
-                // Ñîðòèðîâêà
+                // Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ°
                 for (int i = 0; i < studentCount - 1; i++) {
                     for (int j = 0; j < studentCount - i - 1; j++) {
                         if (ratings[j].average < ratings[j + 1].average) {
@@ -121,20 +121,20 @@ void printStudent(Profile* p, int studentCount) {
                     }
                 }
 
-                // Âûâîä
+                // Ð’Ñ‹Ð²Ð¾Ð´
                 for (int i = 0; i < studentCount; i++) {
                     if (ratings[i].average > 0) {
-                        cout << "Ìåñòî #" << i + 1 << ":\n";
-                        cout << "  ÔÈÎ: " << ratings[i].fullName << endl;
-                        cout << "  Ãðóïïà: " << ratings[i].group << endl;
+                        cout << "ÐœÐµÑÑ‚Ð¾ #" << i + 1 << ":\n";
+                        cout << "  Ð¤Ð˜Ðž: " << ratings[i].fullName << endl;
+                        cout << "  Ð“Ñ€ÑƒÐ¿Ð¿Ð°: " << ratings[i].group << endl;
                         cout << "  ID: " << ratings[i].id << endl;
-                        cout << "  Ñðåäíèé áàëë: " << ratings[i].average << endl;
+                        cout << "  Ð¡Ñ€ÐµÐ´Ð½Ð¸Ð¹ Ð±Ð°Ð»Ð»: " << ratings[i].average << endl;
 
                         if (ratings[i].average >= 4.5) {
-                            cout << "  Ñòàòóñ: " << GREEN << "Îòëè÷íèê" << RESET << endl;
+                            cout << "  Ð¡Ñ‚Ð°Ñ‚ÑƒÑ: " << GREEN << "ÐžÑ‚Ð»Ð¸Ñ‡Ð½Ð¸Ðº" << RESET << endl;
                         }
                         else if (ratings[i].average >= 3.5) {
-                            cout << "  Ñòàòóñ: " << YELLOW << "Õîðîøèñò" << RESET << endl;
+                            cout << "  Ð¡Ñ‚Ð°Ñ‚ÑƒÑ: " << YELLOW << "Ð¥Ð¾Ñ€Ð¾ÑˆÐ¸ÑÑ‚" << RESET << endl;
                         }
                         cout << "------------------------\n";
                     }
@@ -143,45 +143,45 @@ void printStudent(Profile* p, int studentCount) {
             pause();
             clear();
             break;
-        case 3: // Ñòóäåíòû ìóæ÷èíû
+        case 3: // Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð¼ÑƒÐ¶Ñ‡Ð¸Ð½Ñ‹
             clear();
-            cout << "=== ÑÒÓÄÅÍÒÛ - ÌÓÆ×ÈÍÛ ===\n\n";
+            cout << "=== Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢Ð« - ÐœÐ£Ð–Ð§Ð˜ÐÐ« ===\n\n";
             {
                 bool found = false;
                 for (int i = 0; i < studentCount; i++) {
-                    if (p[i].sex == 'Ì') {
+                    if (p[i].sex == 'Ðœ') {
                         printStudentInfo(p[i], i + 1);
                         found = true;
                     }
                 }
                 if (!found) {
-                    cout << RED << "Ñòóäåíòû-ìóæ÷èíû íå íàéäåíû!" << RESET << endl;
+                    cout << RED << "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹-Ð¼ÑƒÐ¶Ñ‡Ð¸Ð½Ñ‹ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹!" << RESET << endl;
                 }
             }
             pause();
             clear();
             break;
-        case 4: // Ñòóäåíòû äåâóøêè
+        case 4: // Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð´ÐµÐ²ÑƒÑˆÐºÐ¸
             clear();
-            cout << "=== ÑÒÓÄÅÍÒÛ - ÄÅÂÓØÊÈ ===\n\n";
+            cout << "=== Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢Ð« - Ð”Ð•Ð’Ð£Ð¨ÐšÐ˜ ===\n\n";
             {
                 bool found = false;
                 for (int i = 0; i < studentCount; i++) {
-                    if (p[i].sex == 'Æ') {
+                    if (p[i].sex == 'Ð–') {
                         printStudentInfo(p[i], i + 1);
                         found = true;
                     }
                 }
                 if (!found) {
-                    cout << RED << "Ñòóäåíòû-äåâóøêè íå íàéäåíû!" << RESET << endl;
+                    cout << RED << "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹-Ð´ÐµÐ²ÑƒÑˆÐºÐ¸ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹!" << RESET << endl;
                 }
             }
             pause();
             clear();
             break;
-        case 5: // Ñòóäåíòû áåç ñòèïåíäèè
+        case 5: // Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð±ÐµÐ· ÑÑ‚Ð¸Ð¿ÐµÐ½Ð´Ð¸Ð¸
             clear();
-            cout << "=== ÑÒÓÄÅÍÒÛ ÁÅÇ ÑÒÈÏÅÍÄÈÈ ===\n\n";
+            cout << "=== Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢Ð« Ð‘Ð•Ð— Ð¡Ð¢Ð˜ÐŸÐ•ÐÐ”Ð˜Ð˜ ===\n\n";
             {
                 bool found = false;
                 for (int i = 0; i < studentCount; i++) {
@@ -199,15 +199,15 @@ void printStudent(Profile* p, int studentCount) {
                     }
                 }
                 if (!found) {
-                    cout << GREEN << "Âñå ñòóäåíòû ïîëó÷àþò ñòèïåíäèþ!" << RESET << endl;
+                    cout << GREEN << "Ð’ÑÐµ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÑŽÑ‚ ÑÑ‚Ð¸Ð¿ÐµÐ½Ð´Ð¸ÑŽ!" << RESET << endl;
                 }
             }
             pause();
             clear();
             break;
-        case 6: // Ñòóäåíòû õîðîøèñòû
+        case 6: // Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ñ…Ð¾Ñ€Ð¾ÑˆÐ¸ÑÑ‚Ñ‹
             clear();
-            cout << "=== ÑÒÓÄÅÍÒÛ - ÕÎÐÎØÈÑÒÛ ===\n\n";
+            cout << "=== Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢Ð« - Ð¥ÐžÐ ÐžÐ¨Ð˜Ð¡Ð¢Ð« ===\n\n";
             {
                 bool found = false;
                 for (int i = 0; i < studentCount; i++) {
@@ -227,15 +227,15 @@ void printStudent(Profile* p, int studentCount) {
                     }
                 }
                 if (!found) {
-                    cout << RED << "Õîðîøèñòû íå íàéäåíû!" << RESET << endl;
+                    cout << RED << "Ð¥Ð¾Ñ€Ð¾ÑˆÐ¸ÑÑ‚Ñ‹ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹!" << RESET << endl;
                 }
             }
             pause();
             clear();
             break;
-        case 7: // Ñòóäåíòû îòëè÷íèêè
+        case 7: // Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð¾Ñ‚Ð»Ð¸Ñ‡Ð½Ð¸ÐºÐ¸
             clear();
-            cout << "=== ÑÒÓÄÅÍÒÛ - ÎÒËÈ×ÍÈÊÈ ===\n\n";
+            cout << "=== Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢Ð« - ÐžÐ¢Ð›Ð˜Ð§ÐÐ˜ÐšÐ˜ ===\n\n";
             {
                 bool found = false;
                 for (int i = 0; i < studentCount; i++) {
@@ -255,15 +255,15 @@ void printStudent(Profile* p, int studentCount) {
                     }
                 }
                 if (!found) {
-                    cout << RED << "Îòëè÷íèêè íå íàéäåíû!" << RESET << endl;
+                    cout << RED << "ÐžÑ‚Ð»Ð¸Ñ‡Ð½Ð¸ÐºÐ¸ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹!" << RESET << endl;
                 }
             }
             pause();
             clear();
             break;
-        case 8: // Ñòóäåíòû ïî id
+        case 8: // Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ‹ Ð¿Ð¾ id
             clear();
-            cout << "Ââåäèòå ID ñòóäåíòà: ";
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ID ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð°: ";
             {
                 int searchId;
                 cin >> searchId;
@@ -271,7 +271,7 @@ void printStudent(Profile* p, int studentCount) {
                 bool found = false;
                 for (int i = 0; i < studentCount; i++) {
                     if (p[i].id == searchId) {
-                        cout << "\n=== ÑÒÓÄÅÍÒ Ñ ID " << searchId << " ===\n\n";
+                        cout << "\n=== Ð¡Ð¢Ð£Ð”Ð•ÐÐ¢ Ð¡ ID " << searchId << " ===\n\n";
                         printStudentInfo(p[i], i + 1);
                         found = true;
                         break;
@@ -279,7 +279,7 @@ void printStudent(Profile* p, int studentCount) {
                 }
 
                 if (!found) {
-                    cout << RED << "Ñòóäåíò ñ ID " << searchId << " íå íàéäåí!" << RESET << endl;
+                    cout << RED << "Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ Ñ ID " << searchId << " Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½!" << RESET << endl;
                 }
             }
             pause();
