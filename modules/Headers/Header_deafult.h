@@ -25,13 +25,13 @@ extern int count_grades;
 
 struct Profile
 {
-	std::string fullName;// Фамилия Имя Отчество
-	char sex;            // Пол: M/W
-	int group;           // Номер группы
-	int id;				 // Номер студента в списке 
-	int grades[8];	     // Оценки за экзамены и диф. зачёты
-	char depart[9];	     // Форма обучения
-	std::string date;          // Дата внесения изменнеия в запись (post/update) 
+	std::string fullName;// Г”Г Г¬ГЁГ«ГЁГї Г€Г¬Гї ГЋГІГ·ГҐГ±ГІГўГ®
+	char sex;            // ГЏГ®Г«: M/W
+	int group;           // ГЌГ®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»
+	int id;				 // ГЌГ®Г¬ГҐГ° Г±ГІГіГ¤ГҐГ­ГІГ  Гў Г±ГЇГЁГ±ГЄГҐ 
+	int grades[8];	     // ГЋГ¶ГҐГ­ГЄГЁ Г§Г  ГЅГЄГ§Г Г¬ГҐГ­Г» ГЁ Г¤ГЁГґ. Г§Г Г·ВёГІГ»
+	char depart[9];	     // Г”Г®Г°Г¬Г  Г®ГЎГіГ·ГҐГ­ГЁГї
+	std::string date;          // Г„Г ГІГ  ГўГ­ГҐГ±ГҐГ­ГЁГї ГЁГ§Г¬ГҐГ­Г­ГҐГЁГї Гў Г§Г ГЇГЁГ±Гј (post/update) 
 };
 
 void clear();
@@ -44,4 +44,5 @@ void show_menu(int current, int size_items, const std::string items[], std::stri
 bool writeFile(char* FileName, Profile *p, int reWrite);
 bool readFile(char* FileName);
 int countStudents(Profile* p);
+
 int loadFromFile(Profile* students, Profile** p_profile);
