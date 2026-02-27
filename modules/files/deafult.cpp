@@ -11,20 +11,20 @@ int count_grades = 2;
 
 std::string items[] =
 {
-    "Добавить студента", "Добавить студентов с файла" ,"Внести правки в данные студента",
-    "Все студенты университета", "Числануть всех", "Выход"
+    "Р”РѕР±Р°РІРёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°", "Р”РѕР±Р°РІРёС‚СЊ СЃС‚СѓРґРµРЅС‚РѕРІ СЃ С„Р°Р№Р»Р°" ,"Р’РЅРµСЃС‚Рё РїСЂР°РІРєРё РІ РґР°РЅРЅС‹Рµ СЃС‚СѓРґРµРЅС‚Р°",
+    "Р’СЃРµ СЃС‚СѓРґРµРЅС‚С‹ СѓРЅРёРІРµСЂСЃРёС‚РµС‚Р°", "Р§РёСЃР»Р°РЅСѓС‚СЊ РІСЃРµС…", "Р’С‹С…РѕРґ"
 };
 
 std::string structure_items[] =
 {
-    "ФИО",
-    "Пол (М/Ж)",
-    "Группа",
+    "Р¤РРћ",
+    "РџРѕР» (Рњ/Р–)",
+    "Р“СЂСѓРїРїР°",
     "Id",
-    "Оценки",
-    "Форма обучения",
-    "Дата изменения",
-    "Числануть по приколу"
+    "РћС†РµРЅРєРё",
+    "Р¤РѕСЂРјР° РѕР±СѓС‡РµРЅРёСЏ",
+    "Р”Р°С‚Р° РёР·РјРµРЅРµРЅРёСЏ",
+    "Р§РёСЃР»Р°РЅСѓС‚СЊ РїРѕ РїСЂРёРєРѕР»Сѓ"
 };
 
 
@@ -78,11 +78,11 @@ bool writeFile(char* FileName, Profile *p, int reWrite)
         return 0;
     }
 
-    std::ofstream File(FileName, (reWrite) ? (std::ios::app) : (0));  // Создаем поток для записи и сразу открываем файл
+    std::ofstream File(FileName, (reWrite) ? (std::ios::app) : (0));  // РЎРѕР·РґР°РµРј РїРѕС‚РѕРє РґР»СЏ Р·Р°РїРёСЃРё Рё СЃСЂР°Р·Сѓ РѕС‚РєСЂС‹РІР°РµРј С„Р°Р№Р»
     
     if (!File.is_open())
     {
-        std::cout << "Открыть файл не удалось! \n";
+        std::cout << "РћС‚РєСЂС‹С‚СЊ С„Р°Р№Р» РЅРµ СѓРґР°Р»РѕСЃСЊ! \n";
         return 404;
     }
     
@@ -90,41 +90,41 @@ bool writeFile(char* FileName, Profile *p, int reWrite)
     // to do
     for (int i = 0; i < N; i++) {
         if ((p->fullName) != "") {
-            File << "Студент " << p->fullName << "\nГруппа: " <<
-                p->group << "\nId: " << p->id << "\nПол: " << p->sex << "\nОценки: ";
+            File << "РЎС‚СѓРґРµРЅС‚ " << p->fullName << "\nР“СЂСѓРїРїР°: " <<
+                p->group << "\nId: " << p->id << "\nРџРѕР»: " << p->sex << "\nРћС†РµРЅРєРё: ";
             for (int i = 0; i < count_grades; i++) {
                 File << (p->grades)[i] << ' ';
             }
-            File << "\nФорма обучения: " << p->depart <<
-                "\nДата последнего изменения: " << p->date << '\n' << '\n';
+            File << "\nР¤РѕСЂРјР° РѕР±СѓС‡РµРЅРёСЏ: " << p->depart <<
+                "\nР”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ: " << p->date << '\n' << '\n';
         }
         p += 1;
     }
     
-    File.close();  // Закрываем файл
-    std::cout << "Данные внесены!";
+    File.close();  // Р—Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
+    std::cout << "Р”Р°РЅРЅС‹Рµ РІРЅРµСЃРµРЅС‹!";
     return 0;
 }
 
 
 bool readFile(char* FileName)
 {
-    std::ifstream File(FileName);   // Создали поток ввода для чтения данных из файла
+    std::ifstream File(FileName);   // РЎРѕР·РґР°Р»Рё РїРѕС‚РѕРє РІРІРѕРґР° РґР»СЏ С‡С‚РµРЅРёСЏ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°
 
     if (!File.is_open())
     {
-        std::cout << "Открыть файл не удалось! \n";
+        std::cout << "РћС‚РєСЂС‹С‚СЊ С„Р°Р№Р» РЅРµ СѓРґР°Р»РѕСЃСЊ! \n";
         return 404;
     }
 
     char S[100];
-    while (!File.eof()) // Читаем все строки из файла и выводим их на экран
+    while (!File.eof()) // Р§РёС‚Р°РµРј РІСЃРµ СЃС‚СЂРѕРєРё РёР· С„Р°Р№Р»Р° Рё РІС‹РІРѕРґРёРј РёС… РЅР° СЌРєСЂР°РЅ
     {
         File.getline(S, 100);
         std::cout << S << std::endl;
     }
 
-    File.close();  // Закрываем файл
+    File.close();  // Р—Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
     return 0;
 }
 
@@ -134,27 +134,27 @@ int loadFromFile(Profile* students, Profile** p_profile)
     std::ifstream File(fileNameIn);
 
     if (!File.is_open()) {
-        std::cout << "Файл не найден!\n";
+        std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ!\n";
         return 404;
     }
 
-    *p_profile = students;  // начинаем с начала массива
+    *p_profile = students;  // РЅР°С‡РёРЅР°РµРј СЃ РЅР°С‡Р°Р»Р° РјР°СЃСЃРёРІР°
     std::string line;
     int loadedCount = 0;
 
     while (getline(File, line))
     {
-        if (line.find("Студент ") == 0)
+        if (line.find("РЎС‚СѓРґРµРЅС‚ ") == 0)
         {
             if (loadedCount >= N)
                 break;
 
             Profile* p = *p_profile;
 
-            // ФИО
+            // Р¤РРћ
             p->fullName = line.substr(8);
 
-            // Группа
+            // Р“СЂСѓРїРїР°
             getline(File, line);
             p->group = stoi(line.substr(8));
 
@@ -162,11 +162,11 @@ int loadFromFile(Profile* students, Profile** p_profile)
             getline(File, line);
             p->id = stoi(line.substr(4));
 
-            // Пол
+            // РџРѕР»
             getline(File, line);
             p->sex = line.substr(5)[0];
 
-            // Оценки
+            // РћС†РµРЅРєРё
             getline(File, line);
             std::string gradesLine = line.substr(8);
             std::stringstream ss(gradesLine);
@@ -174,7 +174,7 @@ int loadFromFile(Profile* students, Profile** p_profile)
             for (int i = 0; i < count_grades; i++) {
                 ss >> p->grades[i];
             }
-            // Форма обучения
+            // Р¤РѕСЂРјР° РѕР±СѓС‡РµРЅРёСЏ
             getline(File, line);
             std::string dep = line.substr(16);
             strcpy(p->depart, dep.c_str());
@@ -189,7 +189,7 @@ int loadFromFile(Profile* students, Profile** p_profile)
         }
     }
     clear();
-    std::cout << GREEN << "Студенты добавлены!" << RESET;
+    std::cout << GREEN << "РЎС‚СѓРґРµРЅС‚С‹ РґРѕР±Р°РІР»РµРЅС‹!" << RESET;
     pause();
     File.close();
     writeFile(fileName, students, 1);
