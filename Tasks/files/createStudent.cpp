@@ -7,73 +7,73 @@ void createStudent(Profile *p, Profile *p_students) {
     while (true) {
         clear();
 
-        SetConsoleCP(1251);       // Ввод в CP1251
-        SetConsoleOutputCP(1251); // Вывод в CP1251
+        SetConsoleCP(1251);       // Г‚ГўГ®Г¤ Гў CP1251
+        SetConsoleOutputCP(1251); // Г‚Е±ГўГ®Г¤ Гў CP1251
 
         bool temp_two = 0;
 
-        cout << "ФИО:";
+        cout << "Г”ДЊГЋ:";
         if (cin.peek() == '\n') {  
             cin.ignore(); 
         }
         getline(cin, p->fullName);
     
-        cout << "Пол:"; 
+        cout << "ДЋГ®Г«:"; 
         cin >> p->sex;
         p->sex = toupper(p->sex);
-        // проверка
-        while (cin.fail() || ((p->sex) != 'Ж' && (p->sex) != 'М')) {
+        // ДЏД‘Г®ГўДєД‘Д™Е•
+        while (cin.fail() || ((p->sex) != 'Д†' && (p->sex) != 'Дљ')) {
             cin.clear();
             cin_ignore();
-            cout << "\aОшибка ввода пола, попробуй еще раз\n";
-            cout << "Пол:";
+            cout << "\aГЋЕ™ДЌГЎД™Е• ГўГўГ®Г¤Е• ДЏГ®Г«Е•, ДЏГ®ДЏД‘Г®ГЎГіГ© ДєЕЇДє Д‘Е•Г§\n";
+            cout << "ДЋГ®Г«:";
             cin >> p->sex;
             p->sex = toupper(p->sex);
         
         }
         cin_ignore();
 
-        cout << "Номер группы:";
+        cout << "ГЌГ®Д›ДєД‘ ДѓД‘ГіДЏДЏЕ±:";
         cin >> p->group;
-        // проверка
+        // ДЏД‘Г®ГўДєД‘Д™Е•
         while (cin.fail()) {
             cin.clear();
             cin_ignore();
-            cout << "\aОшибка ввода группы, попробуй еще раз\n";
-            cout << "Номер группы:";
+            cout << "\aГЋЕ™ДЌГЎД™Е• ГўГўГ®Г¤Е• ДѓД‘ГіДЏДЏЕ±, ДЏГ®ДЏД‘Г®ГЎГіГ© ДєЕЇДє Д‘Е•Г§\n";
+            cout << "ГЌГ®Д›ДєД‘ ДѓД‘ГіДЏДЏЕ±:";
             cin >> p->group;
         }
         cin_ignore();
 
-        cout << "Номер в списке группы:"; 
+        cout << "ГЌГ®Д›ДєД‘ Гў Е„ДЏДЌЕ„Д™Дє ДѓД‘ГіДЏДЏЕ±:"; 
         cin >> p->id;
-        // проверка
+        // ДЏД‘Г®ГўДєД‘Д™Е•
         while (cin.fail()) {
             cin.clear();
             cin_ignore();
-            cout << "\aОшибка ввода id, попробуй еще раз\n";
-            cout << "Номер группы:";
+            cout << "\aГЋЕ™ДЌГЎД™Е• ГўГўГ®Г¤Е• id, ДЏГ®ДЏД‘Г®ГЎГіГ© ДєЕЇДє Д‘Е•Г§\n";
+            cout << "ГЌГ®Д›ДєД‘ ДѓД‘ГіДЏДЏЕ±:";
             cin >> p->group;
         }
         cin_ignore();
 
-        cout << "Оценки за прошедшую сессию:";
+        cout << "ГЋГ¶ДєГ­Д™ДЌ Г§Е• ДЏД‘Г®Е™ДєГ¤Е™ГіЕЈ Е„ДєЕ„Е„ДЌЕЈ:";
    
         for (int i = 0; i < count_grades; i++) {
             cin >> (p->grades)[i];
-            // проверка
+            // ДЏД‘Г®ГўДєД‘Д™Е•
             while (cin.fail() || (p->grades[i]) == 2 || ((p->grades[i]) < 2 || (p->grades[i]) > 5)) {
                 cin.clear();
                 cin_ignore();
-                cout << "\aОшибка ввода оценки, попробуй еще раз\n";
-                cout << "Оценки: ";
+                cout << "\aГЋЕ™ДЌГЎД™Е• ГўГўГ®Г¤Е• Г®Г¶ДєГ­Д™ДЌ, ДЏГ®ДЏД‘Г®ГЎГіГ© ДєЕЇДє Д‘Е•Г§\n";
+                cout << "ГЋГ¶ДєГ­Д™ДЌ: ";
                 cin >> (p->grades)[i];
             }
             if ((p->grades)[i] == 2) temp_two = 1;
         }
         cin_ignore();
 
-        cout << "Форма обучения:"; 
+        cout << "Г”Г®Д‘Д›Е• Г®ГЎГіГ·ДєГ­ДЌЛ™:"; 
         cin >> p->depart;
 
         // Data
@@ -82,14 +82,14 @@ void createStudent(Profile *p, Profile *p_students) {
 
         if (!temp_two) {
             char ok;
-            cout << "Данные введены верно? (Y/N)"; cin >> ok;
+            cout << "Г„Е•Г­Г­Е±Дє ГўГўДєГ¤ДєГ­Е± ГўДєД‘Г­Г®? (Y/N)"; cin >> ok;
             if (ok == 'Y' || ok == 'y') {
                 writeFile(fileName, p, 1);
-                break;  // выходим из цикла
+                break;  // ГўЕ±Е‘Г®Г¤ДЌД› ДЌГ§ Г¶ДЌД™Г«Е•
             }
         }
         else {
-            cout << "Студент не может быть зачислен с двойками!";
+            cout << "ЕѓЕ€ГіГ¤ДєГ­Е€ Г­Дє Д›Г®Д‡ДєЕ€ ГЎЕ±Е€Гј Г§Е•Г·ДЌЕ„Г«ДєГ­ Е„ Г¤ГўГ®Г©Д™Е•Д›ДЌ!";
             pause();
             continue;
         }
