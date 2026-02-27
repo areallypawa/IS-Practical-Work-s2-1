@@ -3,12 +3,12 @@
 
 
 void printStudentInfo(const Profile& student, int number) {
-    std::cout << "Студент #" << number << " (ID: " << student.id << "):\n";
-    std::cout << "  ФИО: " << student.fullName << std::endl;
-    std::cout << "  Пол: " << (student.sex == 'М' ? "Мужской" : "Женский") << std::endl;
-    std::cout << "  Группа: " << student.group << std::endl;
-    std::cout << "  Форма обучения: " << student.depart << std::endl;
-    std::cout << "  Оценки: ";
+    std::cout << "РЎС‚СѓРґРµРЅС‚ #" << number << " (ID: " << student.id << "):\n";
+    std::cout << "  Р¤РРћ: " << student.fullName << std::endl;
+    std::cout << "  РџРѕР»: " << (student.sex == 'Рњ' ? "РњСѓР¶СЃРєРѕР№" : "Р–РµРЅСЃРєРёР№") << std::endl;
+    std::cout << "  Р“СЂСѓРїРїР°: " << student.group << std::endl;
+    std::cout << "  Р¤РѕСЂРјР° РѕР±СѓС‡РµРЅРёСЏ: " << student.depart << std::endl;
+    std::cout << "  РћС†РµРЅРєРё: ";
     for (int i = 0; i < count_grades; i++) {
         if (student.grades[i] > 0) {
             if (student.grades[i] >= 4) {
@@ -27,7 +27,7 @@ void printStudentInfo(const Profile& student, int number) {
     }
     std::cout << std::endl;
 
-    // Вычисление среднего балла
+    // Р’С‹С‡РёСЃР»РµРЅРёРµ СЃСЂРµРґРЅРµРіРѕ Р±Р°Р»Р»Р°
     double sum = 0;
     int count = 0;
     for (int i = 0; i < count_grades; i++) {
@@ -35,20 +35,20 @@ void printStudentInfo(const Profile& student, int number) {
         count++;
     }
     double average = (count > 0) ? sum / count : 0;
-    std::cout << "  Средний балл: " << average << std::endl;
+    std::cout << "  РЎСЂРµРґРЅРёР№ Р±Р°Р»Р»: " << average << std::endl;
 
-    // Определение успеваемости
+    // РћРїСЂРµРґРµР»РµРЅРёРµ СѓСЃРїРµРІР°РµРјРѕСЃС‚Рё
     if (average >= 4.5) {
-        std::cout << "  Статус: " << GREEN << "Отличник" << RESET << std::endl;
+        std::cout << "  РЎС‚Р°С‚СѓСЃ: " << GREEN << "РћС‚Р»РёС‡РЅРёРє" << RESET << std::endl;
     }
     else if (average >= 3.5) {
-        std::cout << "  Статус: " << YELLOW << "Хорошист" << RESET << std::endl;
+        std::cout << "  РЎС‚Р°С‚СѓСЃ: " << YELLOW << "РҐРѕСЂРѕС€РёСЃС‚" << RESET << std::endl;
     }
     else if (average > 0) {
-        std::cout << "  Статус: " << RED << "Троечник" << RESET << std::endl;
+        std::cout << "  РЎС‚Р°С‚СѓСЃ: " << RED << "РўСЂРѕРµС‡РЅРёРє" << RESET << std::endl;
     }
 
-    // Есть ли стипендия?
+    // Р•СЃС‚СЊ Р»Рё СЃС‚РёРїРµРЅРґРёСЏ?
     bool hasScholarship = true;
     for (int i = 0; i < 8; i++) {
         if (student.grades[i] > 0 && student.grades[i] < 4) {
@@ -56,11 +56,11 @@ void printStudentInfo(const Profile& student, int number) {
             break;
         }
     }
-    std::cout << "  Стипендия: " << (hasScholarship && average >= 4.0 ? GREEN "Да" : RED "Нет") << RESET << std::endl;
+    std::cout << "  РЎС‚РёРїРµРЅРґРёСЏ: " << (hasScholarship && average >= 4.0 ? GREEN "Р”Р°" : RED "РќРµС‚") << RESET << std::endl;
 
-    // Дата изменения
+    // Р”Р°С‚Р° РёР·РјРµРЅРµРЅРёСЏ
     if (student.date != "") {
-        std::cout << "  Дата изменения: " << student.date << std::endl;
+        std::cout << "  Р”Р°С‚Р° РёР·РјРµРЅРµРЅРёСЏ: " << student.date << std::endl;
     }
 
     std::cout << "------------------------\n";
